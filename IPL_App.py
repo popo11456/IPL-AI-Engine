@@ -12,7 +12,7 @@ st.title("🏏 IPL Win Probability & Team Analytics Engine")
 @st.cache_data
 def load_data():
     # Use your specific path here
-    df = pd.read_csv("C:/Users/HP/Desktop/IPL.csv", low_memory=False)
+  df = pd.read_csv('IPL_small.csv', low_memory=False)
     return df
 
 try:
@@ -66,4 +66,5 @@ try:
 
 except Exception as e:
     st.error(f"Error loading data: {e}")
+
     st.info("Make sure your IPL.csv is on your Desktop!")
