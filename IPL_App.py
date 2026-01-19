@@ -8,12 +8,17 @@ from sklearn.preprocessing import LabelEncoder
 st.set_page_config(page_title="IPL AI Engine", layout="wide")
 st.title("🏏 IPL Win Probability & Team Analytics Engine")
 
-# Load your 103MB Data
+# --- STEP 1: FIX THE PATH ---
+# Remove 'C:/Users/HP/Desktop/' because the cloud only sees 'IPL_small.csv'
 @st.cache_data
 def load_data():
-    # Use your specific path here
-  df = pd.read_csv('IPL_small.csv', low_memory=False)
+    # --- STEP 2: FIX INDENTATION ---
+    # Make sure this 'df' line has exactly 4 spaces (one tab) before it
+    df = pd.read_csv("IPL_small.csv", low_memory=False)
     return df
+
+# This line should have ZERO spaces before it
+df = load_data()
 
 try:
     df = load_data()
@@ -68,3 +73,4 @@ except Exception as e:
     st.error(f"Error loading data: {e}")
 
     st.info("Make sure your IPL.csv is on your Desktop!")
+
